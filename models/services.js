@@ -2,9 +2,9 @@ module.exports = function(sequelize, DataTypes) {
   var services = sequelize.define("Services", {
     serviceTitle: DataTypes.STRING,
     serviceDesc: DataTypes.TEXT,
-    serviceRat: DataTypes.BIT(5),
+    serviceRat: DataTypes.INTEGER(1),
     serviceImg: DataTypes.STRING,
-    serviceTime: DataTypes.BIT(5),
+    serviceTime: DataTypes.DATE(6),
     serviceGender: DataTypes.STRING,
     servicePrice: DataTypes.INTEGER,
     serviceCat: DataTypes.STRING,
@@ -14,15 +14,15 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  services.associate = function(models) {
-    // We're saying that a Post should belong to an Author
-    // A Post can't be created without an Author due to the foreign key constraint
-    Post.belongsTo(models.store, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+  // services.associate = function(models) {
+  //   // Services should belong to a Store
+  //   // A service can't be created without a store due to the foreign key constraint
+  //   services.belongsTo(models.store, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // };
 
   return services;
 };

@@ -8,25 +8,19 @@ module.exports = function(sequelize, DataTypes) {
     businessType: DataTypes.STRING,
     businessEmail: DataTypes.STRING,
     businessPass: DataTypes.STRING,
-    storeAddress: {
-      streetName: DataTypes.STRING,
-      streetNum: DataTypes.INTEGER,
-      zipCode: DataTypes.INTEGER,
-      state: DataTypes.STRING
-    },
-
+    storeAddress: DataTypes.STRING,
     storeID: {
       type: DataTypes.INTEGER,
       primaryKey: true
     }
   });
 
-  store.associate = function(models) {
-    // Associating Store with Services
-    store.hasMany(models.services, {
-      // If we delete a Store, all it´s asosiated services will be deleted
-      onDelete: "cascade"
-    });
-  };
+  // store.associate = function(models) {
+  //   // Associating Store with Services
+  //   store.hasMany(models.services, {
+  //     // If we delete a Store, all it´s asosiated services will be deleted
+  //     onDelete: "cascade"
+  //   });
+  // };
   return store;
 };
