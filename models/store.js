@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var store = sequelize.define("Store", {
+  var Store = sequelize.define("Store", {
     storeName: DataTypes.STRING(50),
     storeImg: DataTypes.STRING,
     storeContact: DataTypes.STRING,
@@ -15,12 +15,13 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  // store.associate = function(models) {
-  //   // Associating Store with Services
-  //   store.hasMany(models.services, {
-  //     // If we delete a Store, all it´s asosiated services will be deleted
-  //     onDelete: "cascade"
-  //   });
-  // };
-  return store;
+  Store.associate = function(models) {
+    // Associating Store with Services
+    Store.hasMany(models.Services, {
+      // If we delete a Store, all it´s asosiated services will be deleted
+      onDelete: "Cascade"
+    });
+  };
+
+  return Store;
 };
