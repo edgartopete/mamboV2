@@ -19,7 +19,22 @@ module.exports = function(app) {
       });
     });
   });
-
+  // Render store page and pass in a store id
+  app.get("/stores/", function(req, res) {
+    res.render("stores");
+  });
+  // Render store page and pass in a store id
+  app.get("/stores/setup/", function(req, res) {
+    res.render("storeSetup", { layout: "empty" });
+  });
+  // Render store page and pass in a store id
+  app.get("/store/:id", function(req, res) {
+    res.render("store");
+  });
+  // Render service page and pass in a service id
+  app.get("/service/:id", function(req, res) {
+    res.render("service", { layout: "empty" });
+  });
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
