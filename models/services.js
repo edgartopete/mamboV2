@@ -2,7 +2,7 @@ module.exports = function(sequelize, DataTypes) {
   var Services = sequelize.define("Services", {
     serviceTitle: DataTypes.STRING,
     serviceDesc: DataTypes.TEXT,
-    serviceRat: DataTypes.INTEGER(1),
+  
     serviceImg: DataTypes.STRING,
     serviceTime: DataTypes.DATE(6),
     serviceGender: DataTypes.STRING,
